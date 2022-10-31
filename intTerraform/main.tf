@@ -4,14 +4,14 @@ variable "aws_secret_key" {}
 provider "aws" {
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
-  region = "us-east-1"
+  region = "us-east-2"
   
 }
 
 resource "aws_instance" "web_server01" {
-  ami = "ami-08c40ec9ead489470"
+  ami = "ami-097a2df4ac947655f"
   instance_type = "t2.micro"
-  key_name = "Cali"
+  key_name = "jenkins2"
   vpc_security_group_ids = [aws_security_group.web_ssh.id]
 
   user_data = "${file("deploy.sh")}"
