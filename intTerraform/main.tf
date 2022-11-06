@@ -8,7 +8,7 @@ provider "aws" {
   
 }
 
-resource "aws_instance" "web_server01" {
+resource "aws_instance" "web_server01_tf1" {
   ami = "ami-097a2df4ac947655f"
   instance_type = "t2.micro"
   key_name = "jenkins2"
@@ -18,16 +18,20 @@ resource "aws_instance" "web_server01" {
   user_data = "${file("deploy.sh")}"
 
   tags = {
-    "Name" : "Webserver001.2"
+    "Name" : "Webserver001_T1"
   }
   
 }
 
-# BEGIN: Deployment 4 - VPC ############
+# BEGIN: Deployment 4 - VPC ###############################################################
 # VPC
-resource "aws_vpc" "deployment04-vpc" {
+resource "aws_vpc" "deployment04_vpc_tf1" {
   cidr_block           = "172.19.0.0/16"
   enable_dns_hostnames = "true"
+
+  tags = {
+    "Name" : "Dep04_TF1"
+  }  
 }
 
 # ELASTIC IP 
@@ -38,19 +42,19 @@ resource "aws_eip" "nat_eip_prob" {
 # SUBNET 1
 resource "aws_subnet" "subnet1" {
   cidr_block              = "172.19.0.0/18"
-  vpc_id                  = aws_vpc.deployment04-vpc.id
+  vpc_id                  = aws_vpc.deployment04_vpc_tf1.id
   map_public_ip_on_launch = "true"
   availability_zone       = data.aws_availability_zones.available.names[0]
 }
 
 # INTERNET GATEWAY
 resource "aws_internet_gateway" "gw_1" {
-  vpc_id = aws_vpc.deployment04-vpc.id
+  vpc_id = aws_vpc.deployment04_vpc_tf1.id
 }
 
 # ROUTE TABLE
 resource "aws_route_table" "route_table1" {
-  vpc_id = aws_vpc.deployment04-vpc.id
+  vpc_id = aws_vpc.deployment04_vpc_tf1.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -67,9 +71,9 @@ resource "aws_route_table_association" "route-subnet1" {
 data "aws_availability_zones" "available" {
   state = "available"
 }
-# END: Deployment 4 - VPC ############
+# END: Deployment 4 - VPC ###############################################################
 
 output "instance_ip" {
-  value = aws_instance.web_server01.public_ip
+  value = aws_instance.web_server01_tf1.public_ip
   
 }

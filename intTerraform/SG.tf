@@ -1,7 +1,7 @@
 resource "aws_security_group" "web_ssh" {
-  name        = "ssh-access"
+  name        = "ssh-access-deployment04"
   description = "open ssh traffic"
- 
+  vpc_id      = aws_vpc.deployment04_vpc_tf1.id    #....if this is not set, the SG will be set in the default vpc
 
   ingress {
     from_port = 22
@@ -27,7 +27,7 @@ resource "aws_security_group" "web_ssh" {
   }
 
   tags = {
-    "Name" : "Web server001"
+    "Name" : "Web server001 TF1"
     "Terraform" : "true"
   }
   
