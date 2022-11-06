@@ -1,0 +1,39 @@
+input#file.form-control {
+  padding: 3px;
+}
+.bg {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+}
+.topDiv {
+  background:rgba(0,0,0,0.4) !important;
+  border-bottom: 1px solid #333;
+}
+.div1 {
+  background: rgba(0,0,0,0.1) !important;
+}
+.div2 {
+  background: rgba(0,0,0,0.2) !important;
+}
+#btn1 {
+  background:rgba(0,0,0,0.4);
+  border-color:rgba(0,0,0,0.2);
+}
+#btn2 {
+  background:rgba(0,0,0,0.4);
+  border-color:rgba(0,0,0,0.2);
+}
+#pgPeel {
+  position:absolute; 
+  bottom:0;
+  right:0;
+  width: 360px;
+  height:360px;
+}
+#pgPeel img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 360px;
+  width: 20vw;  
+}
