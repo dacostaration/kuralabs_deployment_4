@@ -12,3 +12,5 @@
 - [x] Modify "test_app.py" if you wish to specify different unit tests for your application
 - [x] Ensure that the Terraform destroy stage is included in your Jenkinsfile and is in position BEFORE the apply stage
 
+## Images
+# ![VPC](https://github.com/dacostaration/kuralabs_deployment_4/images/Deployment04-Simple-VPC1.png)
