@@ -28,4 +28,4 @@ $ sudo apt-get install default-jre
 ## View images
 
 ![image](https://github.com/dacostaration/kuralabs_deployment_4/images/pipeline.png)
-![image2](https://github.com/dacostaration/kuralabs_deployment_4/images/vpc.png)
+![image2](https://github.com/dacostaration/kuralabs_deployment_4/images/Deployment04-Simple-VPC1.png)
